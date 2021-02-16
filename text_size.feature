@@ -1,4 +1,3 @@
-@d7 @javascript @api @wysiwyg @user @drush
 Feature: Article text size
   Scenario: Adjust text size
     Given I am on "/node/86"
