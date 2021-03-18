@@ -1,13 +1,10 @@
-Feature: Adding Collaboration item
+Feature: Adding Service item
 
- Scenario: Adding new Collaboration item
+ Scenario: Adding new Service item
    When I am on "node/add"
-   Then I follow "Collaboration"
-   And I should be on "/node/add/Collaboration"
-   Then I fill in "Title" with "Test collaboration"
-   Then I type "li" in "Category" autocomplete field
-   And I wait for autocomplete to load
-   And I select "Life science" from "Category" autocomplete field
+   Then I follow "Service"
+   And I should be on "/node/add/service"
+   Then I fill in "Title" with "Test service"
    Then I fill in "Body" with "Lorem ipsum"
    Then I follow "Add media"
    And I wait 3 seconds
@@ -21,12 +18,12 @@ Feature: Adding Collaboration item
    When I click the element "Save"
    And I wait 2 seconds
    And I should see no errors
-   And I should see "Test collaboration"
-   Then I am on "/collaborations"
-   And I should see "Test collaboration"
+   And I should see "Test service"
+   Then I am on "/services"
+   And I should see "Test service"
 
  Scenario: Adding Single image paragraph
-   Given I am on "/test-collaboration/edit"
+   Given I am on "/test-service/edit"
    Then I click the element "Dropbutton Arrow"
    And I click the element "Add Single image"
    Then I fill in the following:
@@ -50,7 +47,7 @@ Feature: Adding Collaboration item
    Then I should see "Test Single image"
 
  Scenario: Adding One column text paragraph
-   Given I am on "/test-collaboration/edit"
+   Given I am on "/test-service/edit"
    Then I click the element "Dropbutton Arrow"
    And I click the element "Add One column text"
    Then I fill in "One column" with "Text"
@@ -60,30 +57,8 @@ Feature: Adding Collaboration item
    And I should see no errors
    Then I should see "Text"
 
- Scenario: Adding Image with text paragraph
-   Given I am on "/test-collaboration/edit"
-   Then I click the element "Dropbutton Arrow"
-   And I click the element "Add Image with text"
-   Then I click the element "Image"
-   And I follow the "Select media"
-   And I wait 3 seconds
-   Then I switch to an iframe "mediaBrowser"
-   And I attach the file "test1.jpg" to "Media"
-   Then I wait for 3 seconds
-   And I fill in "Alt text" with "Alt text"
-   Then I click the element "Save and insert"
-   And I switch back from an iframe
-   And I select "Right" from "Stories image position"
-   Then I fill in "Text" with "Lorem ipsum"
-   Then I fill in "Revision log message" with "Revision 1"
-   When I click the element "Save"
-   And I wait 2 seconds
-   And I should see no errors
-   Then I should see "Lorem ipsum"
-
-
- Scenario: Adding Key points paragraph
-   Given I am on "/test-collaboration/edit"
+  Scenario: Adding Key points paragraph
+   Given I am on "/test-service/edit"
    Then I click the element "Dropbutton Arrow"
    And I click the element "Add Key points"
    Then I fill in the following:
@@ -97,12 +72,3 @@ Feature: Adding Collaboration item
    And I should see no errors
    Then I should see "Test Keypoints"
 
- Scenario: Adding Other collaborations paragraph
-   Given I am on "/test-collaboration/edit"
-   Then I click the element "Dropbutton Arrow"
-   And I click the element "Add Other collaborations"
-   Then I fill in "Revision log message" with "Revision 1"
-   When I click the element "Save"
-   And I wait 2 seconds
-   And I should see no errors
-   Then I should see "Other collaborations"
